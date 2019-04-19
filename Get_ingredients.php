@@ -8,7 +8,7 @@
 require_once('intialization.php');
 
 // Create a query for the database
-$query = "SELECT , Ingredient_ID, Ingredient_Name, Quantity, Unit_of_measure FROM Digital_Pantry";
+$query = "SELECT Ingredient_ID, Ingredient_Name, Quantity, Unit_of_measure FROM Digital_Pantry";
 
 // Get a response from the database by sending the connection
 // and the query
@@ -31,7 +31,7 @@ echo '<tr><td align="left">' .
 $row['Ingredient_ID'] . '</td><td align="left">' . 
 $row['Ingredient_Name'] . '</td><td align="left">' .
 $row['Quantity'] . '</td><td align="left">' . 
-$row['Unit_of_Measure'] . '</td><td align="left">';
+$row['Unit_of_measure'] . '</td><td align="left">';
 
 echo '</tr>';
 }
@@ -50,7 +50,6 @@ echo mysqli_error($dbc);
 mysqli_close($dbc);
 
 ?>
-        ?>
     </body>
 </html>
 
