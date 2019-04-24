@@ -11,7 +11,7 @@ echo "<h2>Random Recipe</h2>";
 require_once('../initialization.php');
 // Create a query for the database
 $query = "SELECT Recipe_ID FROM Recipes";
-$second_query = "SELECT Recipe_ID, Time, Culture FROM Recipes";
+$second_query = "SELECT Recipe_ID, Recipe_Name, Time, Culture FROM Recipes";
 // Get a response from the database by sending the connection
 // and the query
 $response = @mysqli_query($dbc, $query);
@@ -25,7 +25,7 @@ $third_response = @mysqli_query($dbc, $third_query);
 if($second_response){
 while($row = mysqli_fetch_array($second_response)){
     if($row['Recipe_ID'] == $random_var){
-        echo '<tr>Recipe ID: <td align="left">' . $row['Recipe_ID']. '<br>';
+        echo '<tr>Recipe Name: <td align="left">' . $row['Recipe_Name']. '<br>';
         echo '</td>Time (Minutes): <td align="left">'. $row['Time']. '<br>';
         echo '</td>Culture: <td align="left">'. $row['Culture']. '<br>';
     }
