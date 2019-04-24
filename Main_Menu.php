@@ -5,7 +5,7 @@
     <header>
         <?php
     //inserts the intialization file that sets up the database.
-        require_once('intialization.php');
+        require_once('initialization.php');
         //require_once('intialization.php');
         //sets up the main menu to choose from 
         echo "<h1>Digital Chefs</h1>";
@@ -14,10 +14,12 @@
     ?>
     <nav>
         <ul>
-            <li><a href="Get_ingredients.php">Main Menu</a></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><a href="Placeholders/Get_ingredients.php">Get</a></li>
+            <li><a href="Placeholders/Send_ingredients.php">Send</a></li>
+            <li><a href="Search.php">Search</a></li>
+            <li><a href="Digital_Pantry.php">Digital Pantry</a></li>
+            <li><a href="My_Recipes.php">My Recipes</a></li>
+            <li><a href="Help.php">Help</a></li>
         </ul>
     </nav>
 
