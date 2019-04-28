@@ -10,7 +10,7 @@ echo "<hr>";
 echo "<h2>My Recipes</h2>";
 require_once('../initialization.php');
 // Create a query for the database
-$query = "SELECT Recipe_ID FROM Recipes";
+$query = "SELECT User_generated FROM Recipes";
 $second_query = "SELECT Recipe_ID, Recipe_Name, Time, User_Generated, Culture FROM Recipes";
 // Get a response from the database by sending the connection
 // and the query
@@ -23,13 +23,22 @@ if($second_response){
     <td align="left"><b>Culture</b></td>
     <td align="left"><b>Time</b></td></tr>';
     while($row = mysqli_fetch_array($second_response)){
-    echo '<tr><td align="left">' . 
-  $row['Recipe_Name'] . '</td><td align="left">' . 
-    $row['Culture'] . '</td><td align="left">' .
-    $row['Time'] ; 
-    echo '</tr>';
+        if($response)
+        {
+            while(($row_users =mysqli_fetch_array($response) == 1)
+            {
+                echo '<tr><td align="left">' . 
+                $row['Recipe_Name'] . '</td><td align="left">' . 
+                $row['Culture'] . '</td><td align="left">' .
+                $row['Time'] ; 
+                echo '</tr>';
+            }
+        }
     }
     echo '<td align="left"><li><a href="Main_menu.php">Main Menu</a></li></td>';
+            }
+        }
+    
 } else {
 echo "Couldn't issue database query<br />";
 echo mysqli_error($dbc);
