@@ -17,6 +17,7 @@
             <li><a href="Digital_Pantry_options/View_Pantry.php">View Pantry</a></li>
             <li><a href="Digital_Pantry_options/Add_Ingredients.php">Add Ingredients</a></li>
             <li><a href="Digital_Pantry_options/Remove_Ingredients.php">Remove Ingredients</a></li>
+            <li><a href="Main_Menu.php">Back to Main Menu</a></li>
         </ul>
     </nav>
 
