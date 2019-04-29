@@ -5,16 +5,15 @@
     <title></title>
     <body>
         <?php
-            session.start();
-            $_SESSION['$User_Recipes'] = array();
-
+            //session.start();
+            //$_SESSION['$User_Recipes'] = array();
             // Get a connection for the database
             echo "<h1>Digital Chefs</h1>";
             echo "<hr>";
             echo "<h2>My Recipes</h2>";
             require_once('../initialization.php');
             // Create a query for the database
-            $query = "SELECT Recipe_ID, Recipe_Name, Time, Culture, User_generated FROM recipes WHERE Recipe_ID = '" . $_SESSION["Current_Recipe"]. "'";
+            $query = "SELECT Recipe_ID, Recipe_Name, Time, Culture, User_generated FROM recipes";
             // Get a response from the database by sending the connection
             // and the query
             $response = @mysqli_query($dbc, $query);
@@ -30,7 +29,7 @@
                 {
                     if($row["User_generated" ] == 1)
                     {
-                        $_SESSION['User_Recipes'].array_push($row['Recipe_ID']);
+                        //$_SESSION['User_Recipes'].array_push($row['Recipe_ID']);
                     echo '<tr><td align="left">' . 
                     $row['Recipe_Name'] . '</td><td align="left">' . 
                     $row['Culture'] . '</td><td align="left">' .
