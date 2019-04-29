@@ -11,7 +11,7 @@ echo "<hr>";
 ?>
 <nav>
     <ul>
-        <li><a href="Digital_Pantry.php">Back to Digital Pantry Menu</a></li>
+        <li><a href="../Digital_Pantry.php">Back to Digital Pantry Menu</a></li>
     </ul>
 </nav>  
 </head> 
