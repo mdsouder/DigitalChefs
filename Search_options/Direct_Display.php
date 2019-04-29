@@ -21,7 +21,7 @@ while($row = mysqli_fetch_array($response)){
         echo '</td>Time (Minutes): <td align="left">'. $row['Time']. '<br>';
         echo '</td>Culture: <td align="left">'. $row['Culture'];
         echo '<form action="http://localhost:4000/vscode/Search_options/Recipe_Display.php" method="post">
-            <input name="submit" type="submit" value='.$row['Recipe_ID'].'>
+            <button name="submit" type="submit" value='.$row['Recipe_ID'].'>Select</button>
             </form><br>';
     }
 echo '</tr>';
