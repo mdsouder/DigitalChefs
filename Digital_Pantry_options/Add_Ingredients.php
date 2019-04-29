@@ -24,13 +24,13 @@
     <body>
         <form action="Ingredient_Submit.php" method="POST">
             Ingredient Name:
-            <input name="Ingredient_Name" type="text">
+            <input name="Ingredient_Name" id="Ingredient_Name" type="text">
             <br><br>
             Ingredient Amount:
-            <input name="Quantity" type="number">
+            <input name="Quantity" id="Quantity" type="number">
             <br><br>
             Unit of Measure:
-            <input name="Unit_of_measure" type="text">
+            <input name="Unit_of_measure" id="Unit_of_measure" type="text">
             <br><br>
             <input type="submit">
         </form>
