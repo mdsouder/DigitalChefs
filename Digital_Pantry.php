@@ -14,9 +14,9 @@
     ?>
     <nav>
         <ul>
-            <li><a href="View_Pantry.php">View Pantry</a></li>
-            <li><a href="Add_Ingredients.php">Add Ingredients</a></li>
-            <li><a href="Remove_Ingredients.php">Remove Ingredients</a></li>
+            <li><a href="Digital_Pantry_options/View_Pantry.php">View Pantry</a></li>
+            <li><a href="Digital_Pantry_options/Add_Ingredients.php">Add Ingredients</a></li>
+            <li><a href="Digital_Pantry_options/Remove_Ingredients.php">Remove Ingredients</a></li>
         </ul>
     </nav>
 
