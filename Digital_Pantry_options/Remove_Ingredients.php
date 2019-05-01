@@ -38,18 +38,15 @@ $row['Ingredient_ID'] . '</td><td align="left">' .
 $row['Ingredient_Name'] . '</td><td align="left">' .
 $row['Quantity'] . '</td><td align="left">' . 
 $row['Unit_of_measure'] . '</td><td align="left">';
-echo '
-    <button name="remove" onclick="removeIngredient()">Remove</button><br>';
+echo '<form action="Ingredient_Removal.php" method="POST">
+    <button name="Ingredient_ID" type="submit" value='.$row['Ingredient_ID'].'>Remove</button>
+    </form><br>';
 echo '</tr>';
 }
 echo '</table>';
 } else {
 echo "Couldn't issue database query<br />";
 echo mysqli_error($dbc);
-}
-function removeIngredient()
-{
-    $newquery = "DELETE FROM Digital_Pantry";
 }
 // Close connection to the database
 mysqli_close($dbc);
