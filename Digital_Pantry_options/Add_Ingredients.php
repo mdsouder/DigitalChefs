@@ -18,8 +18,6 @@
         </ul>
     </nav>
 
-    <!––sets a form to take input from the user for what menu option to use-->
-
     </header>
     <body>
         <form action="Ingredient_Submit.php" method="POST">
@@ -30,7 +28,13 @@
             <input name="Quantity" id="Quantity" type="number">
             <br><br>
             Unit of Measure:
-            <input name="Unit_of_measure" id="Unit_of_measure" type="text">
+            <select name="Unit_of_measure" id="Unit_of_measure">
+                <option value="Ounce">Oz</option>
+                <option value="Pound">Pound</option>
+                <option value="Cup">Cups</option>
+                <option value="Teaspoon">Tsp</option>
+                <option value="Tablespoon">Tbsp</option>
+            </select>
             <br><br>
             <input type="submit">
         </form>
