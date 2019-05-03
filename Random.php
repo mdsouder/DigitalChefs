@@ -15,7 +15,7 @@ $second_query = "SELECT Recipe_ID, Recipe_Name, Time, Culture FROM Recipes";
 // Get a response from the database by sending the connection
 // and the query
 $response = @mysqli_query($dbc, $query);
-$second_response = @mysqli_query($dbc, $second_query);
+$second_response = @mysqli_query($dbc, $second_query); 
 $num_of_rows = 0;
 while(mysqli_fetch_array($response))
 {$num_of_rows = $num_of_rows + 1;}
