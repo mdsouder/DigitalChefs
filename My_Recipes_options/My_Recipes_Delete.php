@@ -9,7 +9,7 @@
     <hr>
     <h1>Digital Chefs</h1>
     <hr>
-    <h2>My Recipes - View</h2>
+    <h2>My Recipes - Delete</h2>
     </head>
     <body>
     <?php
@@ -36,7 +36,7 @@
                         <td align="left">' .  $row['Culture'] . '</td>
                         <td align="left">' .  $row['Time']. '</td>
                         <td align = "left">'; 
-                        echo '<form method="post" action ="http://localhost:4000/vscode/Main_Recipe_Display.php">
+                        echo '<form method="post" action ="My_Recipes_Delete_Action.php">
                             <button name="submit" type="submit" value='.$row['Recipe_ID'].'>Select</button>
                             </form></td><br>';
                         echo '</tr>';
