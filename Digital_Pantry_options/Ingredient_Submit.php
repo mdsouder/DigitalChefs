@@ -22,16 +22,30 @@
         $Ingredient_Name = $_POST["Ingredient_Name"];
         $Quantity = $_POST["Quantity"];
         $Unit_of_measure = $_POST["Unit_of_measure"];
-        
-        $query = "INSERT INTO digital_pantry (Ingredient_Name, Quantity, Unit_of_measure) VALUES ('$Ingredient_Name','$Quantity','$Unit_of_measure')";
+
+        $query = "SELECT Ingredient_ID, Ingredient_Name, Quantity, Unit_of_measure FROM Digital_Pantry";
         $response = @mysqli_query($dbc, $query);
+
+        while ($row = mysqli_fetch_array($response))
+        {
+            if ($row['Ingredient_Name'] == $Ingredient_Name)
+            {
+                $Aquery = "UPDATE digital_pantry SET Quantity = (Quantity + '$Quantity') WHERE digital_pantry.Ingredient_Name = '$Ingredient_Name'";
+            }
+            else
+            {
+                $Aquery = "INSERT INTO digital_pantry (Ingredient_Name, Quantity, Unit_of_measure) VALUES ('$Ingredient_Name','$Quantity','$Unit_of_measure')";
+            }
+        }
+        
+        $response = @mysqli_query($dbc, $Aquery);
         if ($response)
         {
             echo "Ingredient added successfully!";
         }
         else
         {
-            echo "ERROR: Could not execute $query. " . mysqli_error($dbc);
+            echo "ERROR: Could not execute $Aquery. " . mysqli_error($dbc);
         }
     ?>
 
