@@ -57,7 +57,7 @@ if($second_response)
     echo "<hr>";
     echo "<br><br>";
     echo '<form action="Recipe_Complete.php" method="POST">
-    <button name="Ingredient_ID" type="submit">Remove</button>
+    <button name="ID_var" type="submit" value="'.$ID_var.'">Recipe Complete</button>
     </form><br>';
 } 
 else 
