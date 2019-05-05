@@ -43,9 +43,19 @@ while($third_row = mysqli_fetch_array($third_response))
             $Ingredient_Name = $third_row['Ingredient_Name'];
             $new_query = "UPDATE digital_pantry SET Quantity = (Quantity - '$Quantity') WHERE digital_pantry.Ingredient_Name = '$Ingredient_Name'";
             $new_response = @mysqli_query($dbc, $new_query);
-			if ($Quantity <= 0)
-			{
-				$second_query = "DELETE FROM digital_pantry WHERE Ingredient_Name = $Ingredient_Name"; 
+            $quantity_query = "SELECT Ingredient_Name, Quantity FROM digital_pantry";
+            $quantity_response = @mysqli_query($dbc, $quantity_query);
+            while ($quantity_row = mysqli_fetch_array($quantity_response))
+            {
+                if(strtoupper($quantity_row['Ingredient_Name']) == strtoupper($third_row['Ingredient_Name']))
+                {
+                    $Quantity = $quantity_row['Quantity'];
+                    if ($Quantity <= 0)
+			        {
+                        $delete_query = "DELETE FROM digital_pantry WHERE Ingredient_Name = '$Ingredient_Name'";
+                        $delete_response = @mysqli_query($dbc, $delete_query); 
+                    }
+                }
             }
             if ($ingredients_run_count == $ingredients_size)
             {
