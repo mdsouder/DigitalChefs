@@ -14,8 +14,6 @@
     ?>
     <nav>
         <ul>
-            <li><a href="Placeholders/Get_ingredients.php">Get</a></li>
-            <li><a href="Placeholders/Send_ingredients.php">Send</a></li>
             <li><a href="Search.php">Search</a></li>
             <li><a href="Digital_Pantry.php">Digital Pantry</a></li>
             <li><a href="My_Recipes.php">My Recipes</a></li>
