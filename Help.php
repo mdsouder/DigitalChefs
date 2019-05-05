@@ -38,12 +38,17 @@
         <p>We have just the thing for you! Under "Search" if you select "Filter", you'll be able to filter your search results
             based on what kind of food you're in the mood for.
         </p>
-        <h3>So my foot's totally stuck, right, I'm freaking out, the dog's having a seizure
-            and I need to make something quick! Can you help me with that?
-        </h3>
-        <p>Well that sounds like quite the predicament! We can't get your foot unstuck, but we can certainly help you make food
-            quickly! This can also be found in the "Filter" menu. From there, you'll be able to search for recipes based on how
+        <h3>I need to make something quickly! Do you have a solution for that?</h3>
+        <p>We sure do! This can also be found in the "Filter" menu. From there, you'll be able to search for recipes based on how
             long they take to make.
+        </p>
+        <h3>What if I make a mistake and need to take something out of my digital pantry?</h3>
+        <p>All you have to do in that situation is go into your Digial Pantry and select "Remove Ingredients". From there, click
+            on the button associated with the ingredient you want to delete.
+        </p>
+        <h3>How do I delete a recipe from my recipes?</h3>
+        <p>Simply go into the My Recipes menu, select "Delete a recipe", and then press the select button associated with the
+            recipe you want to delete.
         </p>
     </body>
 </html>
