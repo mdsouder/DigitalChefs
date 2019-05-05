@@ -16,7 +16,7 @@ $query = "SELECT Recipe_ID, Recipe_Name, Time, Culture FROM Recipes";
 $response = @mysqli_query($dbc, $query);
 if($response){
 while($row = mysqli_fetch_array($response)){
-    if(strpos($row['Recipe_Name'], $_POST['input']) !== false){
+    if(strpos(strtoupper($row['Recipe_Name']), strtoupper($_POST['input'])) !== false){
         echo '<tr>Recipe Name: <td align="left">' . $row['Recipe_Name']. '<br>';
         echo '</td>Time (Minutes): <td align="left">'. $row['Time']. '<br>';
         echo '</td>Culture: <td align="left">'. $row['Culture'];
