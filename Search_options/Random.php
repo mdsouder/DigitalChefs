@@ -22,6 +22,8 @@ while(mysqli_fetch_array($response))
 $random_var = rand(1, $num_of_rows);
 $third_query = "SELECT Step_ID, Description FROM steps_$random_var";
 $third_response = @mysqli_query($dbc, $third_query);
+$fourth_query = "SELECT * FROM ingredients_$random_var";
+$fourth_response = @mysqli_query($dbc, $fourth_query);
 if($second_response){
 while($row = mysqli_fetch_array($second_response)){
     if($row['Recipe_ID'] == $random_var){
@@ -31,6 +33,16 @@ while($row = mysqli_fetch_array($second_response)){
     }
 echo '</tr>';
 }
+echo '<br>';
+while($row = mysqli_fetch_array($fourth_response))
+{
+    echo '<tr><td align="left">Ingredient:      <td/>'.
+    '<td align="left">'.$row['Ingredient_Name'].'</td>'. "    ".
+    '<td align="left">'.$row['Quantity'].'</td>'. "    ".
+    '<td align="left">'.$row['Unit_of_measure'].'</td>'. "    ".
+    '</tr><br>';
+}
+echo '<br>';
 while($row = mysqli_fetch_array($third_response))
 {
     echo '<tr>Step <td align="left">' . $row['Step_ID']. ': '. $row['Description'].'<br>';
