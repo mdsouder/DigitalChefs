@@ -26,12 +26,40 @@ while($row = mysqli_fetch_array($response)){
                         $second_response = @mysqli_query($dbc, $second_query);
                         $third_query = "SELECT Ingredient_ID, Quantity FROM ingredients_$row_ID"; 
                         $third_response = @mysqli_query($dbc, $third_query);
-                        echo '<tr>Recipe Name: <td align="left">' . $row['Recipe_Name']. '<br>';
-                                    echo '</td>Time (Minutes): <td align="left">'. $row['Time']. '<br>';
-                                    echo '</td>Culture: <td align="left">'. $row['Culture'];
-                                    echo '<form action="http://localhost:4000/vscode/Search_options/Recipe_Display.php" method="post">
-                                    <button name="submit" type="submit" value='.$row['Recipe_ID'].'>Select</button>
-                                    </form><br>';
+                        $fourth_query = "SELECT Ingredient_ID, Quantity FROM ingredients_$row_ID"; 
+                        $fourth_response = @mysqli_query($dbc, $fourth_query);
+                        $ingredients_size = 0;
+                        $ingredients_run_count = 0;
+                        while($fourth_row = mysqli_fetch_array($fourth_response))
+                        {
+                            $ingredients_size = $ingredients_size + 1;
+                        }
+                        while($third_row = mysqli_fetch_array($third_response))
+                        {
+                            while($second_row = mysqli_fetch_array($second_response))
+                            {
+                                if($second_row['Ingredient_ID'] == $third_row['Ingredient_ID'])
+                                {
+                                    if($second_row['Quantity'] > $third_row['Quantity'])
+                                    {
+                                        $ingredients_run_count = $ingredients_run_count + 1;
+                                        $second_query = "SELECT Ingredient_ID, Quantity FROM digital_pantry";
+                                        $second_response = @mysqli_query($dbc, $second_query);
+                                        if($ingredients_run_count == $ingredients_size)
+                                        {
+                                            echo '<tr>Recipe Name: <td align="left">' . $row['Recipe_Name']. '<br>';
+                                            echo '</td>Time (Minutes): <td align="left">'. $row['Time']. '<br>';
+                                            echo '</td>Culture: <td align="left">'. $row['Culture'];
+                                            echo '<form action="http://localhost:4000/vscode/Search_options/Recipe_Display.php" method="post">
+                                            <button name="submit" type="submit" value='.$row['Recipe_ID'].'>Select</button>
+                                            </form><br>';
+                                            $second_query = NULL;
+                                            $second_response = NULL;
+                                        }
+                                    }                                   
+                                }
+                            }
+                        }
                     }
                     else{
                         echo '<tr>Recipe Name: <td align="left">' . $row['Recipe_Name']. '<br>';
