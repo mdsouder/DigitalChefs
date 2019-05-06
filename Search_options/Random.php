@@ -12,13 +12,15 @@ require_once('../initialization.php');
 // Create a query for the database
 $query = "SELECT Recipe_ID FROM Recipes";
 $second_query = "SELECT Recipe_ID, Recipe_Name, Time, Culture FROM Recipes";
+$rec_ID = array();
 // Get a response from the database by sending the connection
 // and the query
 $response = @mysqli_query($dbc, $query);
 $second_response = @mysqli_query($dbc, $second_query);
 $num_of_rows = 0;
-while(mysqli_fetch_array($response))
-{$num_of_rows = $num_of_rows + 1;}
+while($push_var = mysqli_fetch_array($response))
+{$num_of_rows = $num_of_rows + 1;
+array_push($rec_ID,$push_var['Recipe_ID']);}
 $random_var = rand(1, $num_of_rows);
 $third_query = "SELECT Step_ID, Description FROM steps_$random_var";
 $third_response = @mysqli_query($dbc, $third_query);
@@ -26,7 +28,7 @@ $fourth_query = "SELECT * FROM ingredients_$random_var";
 $fourth_response = @mysqli_query($dbc, $fourth_query);
 if($second_response){
 while($row = mysqli_fetch_array($second_response)){
-    if($row['Recipe_ID'] == $random_var){
+    if($row['Recipe_ID'] == $rec_ID[$random_var-1]){
         echo '<tr>Recipe Name: <td align="left">' . $row['Recipe_Name']. '<br>';
         echo '</td>Time (Minutes): <td align="left">'. $row['Time']. '<br>';
         echo '</td>Culture: <td align="left">'. $row['Culture']. '<br>';
