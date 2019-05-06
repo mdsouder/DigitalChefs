@@ -28,13 +28,12 @@ if($response){
     echo '<table align="left"
     cellspacing="5" cellpadding="8">
     
-    <tr><td align="left"><b>Ingredient ID</b></td>
+    <tr>
     <td align="left"><b>Ingredient Name</b></td>
     <td align="left"><b>Quantity</b></td>
     <td align="left"><b>Unit of Measure</b></td></tr>';
 while($row = mysqli_fetch_array($response)){
-echo '<tr><td align="left">' . 
-$row['Ingredient_ID'] . '</td><td align="left">' . 
+echo '<tr><td align="left">' .  
 $row['Ingredient_Name'] . '</td><td align="left">' .
 $row['Quantity'] . '</td><td align="left">' . 
 $row['Unit_of_measure'] . '</td><td align="left">';
