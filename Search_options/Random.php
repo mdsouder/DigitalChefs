@@ -22,13 +22,14 @@ while($push_var = mysqli_fetch_array($response))
 {$num_of_rows = $num_of_rows + 1;
 array_push($rec_ID,$push_var['Recipe_ID']);}
 $random_var = rand(1, $num_of_rows);
-$third_query = "SELECT Step_ID, Description FROM steps_$random_var";
+$rec_ID_check = $rec_ID[$random_var-1];
+$third_query = "SELECT Step_ID, Description FROM steps_$rec_ID_check";
 $third_response = @mysqli_query($dbc, $third_query);
-$fourth_query = "SELECT * FROM ingredients_$random_var";
+$fourth_query = "SELECT * FROM ingredients_$rec_ID_check";
 $fourth_response = @mysqli_query($dbc, $fourth_query);
 if($second_response){
 while($row = mysqli_fetch_array($second_response)){
-    if($row['Recipe_ID'] == $rec_ID[$random_var-1]){
+    if($row['Recipe_ID'] == $rec_ID_check){
         echo '<tr>Recipe Name: <td align="left">' . $row['Recipe_Name']. '<br>';
         echo '</td>Time (Minutes): <td align="left">'. $row['Time']. '<br>';
         echo '</td>Culture: <td align="left">'. $row['Culture']. '<br>';
